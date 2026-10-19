@@ -1,0 +1,56 @@
+﻿Sheet names: ['README', 'FARM', 'FARM_VISIT', 'COW', 'LACTATION', 'COW_VISIT', 'QUARTER_VISIT', 'SAMPLE_LAB', 'TREATMENT', 'ENVIRONMENT', 'DATA_QUALITY']
+
+=== Sheet: README (rows=24, cols=8) ===
+Longitudinal Udder Health Study Data Entry Workbook
+Study design | 12-month prospective multicentre cohort; fortnightly CMT and monthly quantitative SCC
+Data hierarchy | State ΓåÆ Farm ΓåÆ Cow ΓåÆ Lactation ΓåÆ Visit ΓåÆ Quarter
+
+=== Sheet: FARM (rows=500, cols=29) ===
+Farm register
+One row per enrolled farm. Complete baseline information before the first longitudinal visit.
+State | LGA | Ward_Community | Farm_ID | GPS_Latitude | GPS_Longitude | Enrolment_Date | Production_System | Ownership_Type | Total_Cattle | Lactating_Cows_Baseline | Main_Breeds | Replacement_Source | Milking_Method | Milking_Frequency_per_Day | Housing_Type | Floor_Type | Bedding_Type | Water_Source | Shade_Availability
+
+=== Sheet: FARM_VISIT (rows=2000, cols=27) ===
+Fortnightly farm visit log
+One row per farm visit. Use actual dates and document schedule deviations and changing farm conditions.
+State | Farm_ID | Visit_ID | Scheduled_Date | Actual_Date | Arrival_Time | Observer_IDs | Lactating_Cows_Present | Expected_Cows_Absent | Milking_Time_Observed | Milking_Operator_Codes | Milking_Method_Today | Water_Available | Power_Available | Floor_Wetness | Bedding_Condition | Manure_Accumulation | Fly_Abundance | Rain_Past_24h | Farm_Rainfall_mm
+
+=== Sheet: COW (rows=2000, cols=14) ===
+Cow register
+One row per cow. Permanent identity and characteristics that do not change at each visit.
+State | Farm_ID | Cow_ID | Local_Tag_ID | Breed_Genetic_Group | Birth_Date | Estimated_Age_Years | Age_Source | Cow_Source | Arrival_Date | Distinctive_Markings_Photo_Code | Previous_Clinical_Mastitis | Previous_High_SCC_CMT | Permanent_Notes
+
+=== Sheet: LACTATION (rows=3000, cols=16) ===
+Cow lactation register
+One row per cow-lactation. Create a new Lactation_ID after every calving.
+State | Farm_ID | Cow_ID | Lactation_ID | Parity | Calving_Date | Calving_Outcome | Dry_Cow_Therapy_Previous | Teat_Sealant_Previous | Lactation_Start_Entry_Date | Dry_Off_Date | Exit_Date | Exit_Reason | Pregnancy_Status_At_Entry | Previous_Lactation_Yield_kg | Notes
+
+=== Sheet: COW_VISIT (rows=10000, cols=25) ===
+Cow visit measurements
+One row per cow at each visit. Enter Missing_Reason when an expected cow-level observation is unavailable.
+State | Farm_ID | Visit_ID | Actual_Date | Cow_ID | Lactation_ID | DIM | Parity | Milk_Yield_Value | Milk_Yield_Unit | Yield_Period | Measurement_Method | Milking_Frequency | BCS_Value | BCS_Scale | Locomotion_Score | Udder_Hygiene_Score | Rectal_Temperature_C | Concurrent_Disease_Signs | Antimicrobial_Previous_14d
+
+=== Sheet: QUARTER_VISIT (rows=40000, cols=26) ===
+Quarter examination and CMT
+One row per cow-quarter-visit. Four rows are expected for each cow-visit unless a quarter is absent or nonfunctional.
+State | Farm_ID | Visit_ID | Actual_Date | Cow_ID | Lactation_ID | Quarter | Functional_Status | Clinical_Mastitis | Clinical_Grade | Milk_Abnormality | Swelling_Heat_Pain | Teat_End_Score | Teat_Lesion | Udder_Quarter_Finding | CMT_Score | CMT_Positive_Primary | Quantitative_SCC_cells_mL | SCC_Result_Flag | Culture_Sample_ID
+
+=== Sheet: SAMPLE_LAB (rows=10000, cols=29) ===
+Milk sample and laboratory results
+One row per milk sample. Add a separate row for each quarter or composite sample; preserve raw laboratory values.
+Sample_ID | State | Farm_ID | Visit_ID | Cow_ID | Lactation_ID | Quarter_or_Composite | Collection_Date | Collection_Time | Collector_ID | Before_or_After_Milking | Before_Treatment | Preservative | Storage_Temperature_C | Laboratory_Receipt_Date | Receipt_Time | Condition_On_Receipt | SCC_Method_Instrument | SCC_cells_mL | SCC_Result_Flag
+
+=== Sheet: TREATMENT (rows=5000, cols=29) ===
+Clinical mastitis and treatment events
+One row per treatment course or clinical event. Do not combine separate products or unrelated episodes without a shared Event_ID.
+Event_ID | State | Farm_ID | Cow_ID | Lactation_ID | Detection_Date | Detection_Time | Detected_By | Quarter_s | Clinical_Grade | Rectal_Temperature_C | Sample_Before_Treatment | Sample_ID | Veterinarian_Consulted | Product_Trade_Name | Active_Ingredient_s | Dose | Dose_Unit | Route | Frequency
+
+=== Sheet: ENVIRONMENT (rows=10000, cols=14) ===
+Daily environmental measurements
+One row per farm-date or weather-station-date. Retain raw daily observations before calculating exposure windows.
+State | Farm_ID | Station_ID | Date | Temperature_Min_C | Temperature_Mean_C | Temperature_Max_C | Relative_Humidity_Mean_pct | Rainfall_mm | THI | Data_Source | Distance_to_Farm_km | QC_Flag | Notes
+
+=== Sheet: DATA_QUALITY (rows=23, cols=6) ===
+Data Quality Review
+Dataset | Records entered | Missing primary ID | Duplicate primary key
+FARM | =COUNTA(FARM!D5:D500) | =SUMPRODUCT(--(FARM!A5:A500<>""),--(FARM!D5:D500="")) | =SUMPRODUCT(--(FARM!D5:D500<>""),--(COUNTIF(FARM!D5:D500,FARM!D5:D500)>1))

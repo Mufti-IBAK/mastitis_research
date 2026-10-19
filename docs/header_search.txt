@@ -1,0 +1,20 @@
+﻿ROW 1: 1 cols - Longitudinal Udder Health Data Entry in Long Format
+ROW 2: 1 cols - ONE ROW = one cow × one udder quarter × one visit. Enter four rows per examined 
+ROW 3: 1 cols - Yellow cells are data-entry fields. White fields derive Record Key, DIM, CMT pos
+ROW 5: 99 columns
+  1: Record_Key_DERIVED
+  2: State
+  3: LGA
+  4: Farm_ID
+  5: Visit_ID
+  6: Visit_Date
+  7: Scheduled_Visit_Date
+  8: Observer_ID
+  9: Farm_Production_System
+  10: Farm_Total_Cattle
+  ...
+  97: Missing_Reason
+  98: Protocol_Deviation
+  99: Notes
+ROW 6: 4 cols - =IF(OR(E6="",W6="",AY6=""),"",E6&"|"&W6&"|"&AY6)
+ROW 7: 4 cols - =IF(OR(E7="",W7="",AY7=""),"",E7&"|"&W7&"|"&AY7)

@@ -1,0 +1,135 @@
+﻿Number of tables: 10
+
+=== TABLE 0 (6 rows x 5 cols) ===
+Variable name | Type and permitted values | Definition | Collection or assessment method | Timing
+N | Ordinal | No thickening; mixture remains liquid. | Rotate gently and read immediately; record N. | Each quarter
+T | Ordinal | Trace or transient slight thickening; borderline reaction. | Record T separately. Primary classification remains negative, but retain for sensitivity analysis. | Each quarter
+1 | Ordinal | Weak but distinct gel, usually without a clear central peak. | Record 1; classified CMT-positive in the primary analysis. | Each quarter
+2 | Ordinal | Immediate distinct gel with noticeable thickening and possible slight peak. | Record 2; classified CMT-positive. | Each quarter
+3 | Ordinal | Strong gel or mass that adheres to paddle and forms a prominent peak. | Record 3; classified CMT-positive and assess clinical signs. | Each quarter
+
+=== TABLE 1 (9 rows x 5 cols) ===
+Variable name | Type and permitted values | Definition | Collection or assessment method | Timing
+Record_Key_DERIVED | Text; generated | Unique cow-quarter-visit key: Visit_ID | Cow_ID | Quarter. | Excel formula; do not type over it. Investigate duplicate keys before changing any source record. | Each row
+State | Controlled text: Jigawa, Kaduna, Kano, Katsina, Kebbi, Sokoto, Zamfara, Other | State in which the enrolled farm is located. | Select from the dropdown; use the farmΓÇÖs physical location, not the ownerΓÇÖs residence. | Each row
+LGA | Text | Local Government Area containing the farm. | Record the official LGA name consistently. | Baseline; repeat
+Farm_ID | Text identifier | Permanent anonymous identifier for an enrolled farm. | Assign once, e.g., NWN-SO-001. Never recycle or use the farm/owner name. | Each row
+Visit_ID | Text identifier | Unique identifier for a scheduled or completed farm visit. | Combine Farm_ID, date and sequence, e.g., NWN-SO-001-20261005-01. | Each visit
+Visit_Date | Excel date YYYY-MM-DD | Actual date on which examination and sampling occurred. | Enter the actual date; never substitute the scheduled date after a missed/delayed visit. | Each visit
+Scheduled_Visit_Date | Excel date YYYY-MM-DD | Planned fortnightly visit date. | Enter from the visit calendar before fieldwork. | Each visit
+Observer_ID | Text/code | Code for the person primarily responsible for clinical and data recording. | Use the preassigned staff code; if several staff participate, record the lead observer and describe others in Notes. | Each visit
+
+=== TABLE 2 (15 rows x 5 cols) ===
+Variable name | Type and permitted values | Definition | Collection or assessment method | Timing
+Farm_Production_System | Intensive; Semi-intensive; Extensive/transhumant; Mixed | Predominant system under which lactating cows are managed. | Classify from observation and manager interview using the agreed study definitions. | Baseline; update if changed
+Farm_Total_Cattle | Integer count ΓëÑ0 | All cattle present or belonging to the farm at the visit. | Ask the manager and verify against a register/head count where possible. | Each visit
+Farm_Lactating_Cows | Integer count ΓëÑ0 | Cows currently producing milk, whether milked or partly suckled. | Count from the current cow list and reconcile with cows present/absent. | Each visit
+Farm_Milking_Method | Hand; Bucket machine; Pipeline/parlour; Other | Method used for most lactating cows on the visit date. | Observe an actual milking where possible; otherwise interview the responsible milker. | Each visit
+Farm_Milking_Frequency_Day | Integer 1ΓÇô6 | Usual number of milkings per cow per 24 hours. | Ask the milker; record the routine applied to the study cow group. | Each visit
+Farm_Housing_Type | Tie stall; Loose housing; Open yard; Pasture; Mixed; Other | Main overnight/resting arrangement for lactating cows. | Direct observation; choose the predominant arrangement. | Baseline; update if changed
+Farm_Floor_Wetness | Dry; Damp; Wet; Muddy; Unknown | Condition of the principal standing/resting surface at the visit. | Observe several representative locations before cleaning where possible. | Each visit
+Farm_Bedding_Condition | Absent; Dry; Damp; Wet; Unknown | Availability and moisture condition of bedding used by lactating cows. | Inspect several resting places; record the predominant condition. | Each visit
+Farm_Manure_Accumulation | Low; Moderate; High; Unknown | Visible faecal accumulation in cow standing/resting and milking areas. | Use the agreed visual reference photographs and record the predominant condition. | Each visit
+Farm_Fly_Abundance | Low; Moderate; High; Unknown | Observed fly burden around cows and the milking/resting area. | Standardised visual observation for approximately 2 minutes before disturbance. | Each visit
+Farm_Water_Available | Yes; No; Unknown | Whether drinking and milking-cleaning water is available at the time of visit. | Observe water points/taps and confirm with staff. | Each visit
+Farm_Feed_Change | Yes; No; Unknown | Material change in forage, concentrate amount/type or feeding frequency since the previous visit. | Ask the manager using the previous visit as the reference; describe the change in Notes. | Each visit
+Farm_Milking_Routine_Change | Yes; No; Unknown | Change in milkers, milking order, equipment or teat preparation since the previous visit. | Interview the milker and confirm by observation; describe the change in Notes. | Each visit
+Farm_Disease_Outbreak | Yes; No; Unknown | Unusual increase in disease affecting the herd since the previous visit. | Ask the manager and review treatment/mortality records where available; describe disease in Notes. | Each visit
+
+=== TABLE 3 (16 rows x 5 cols) ===
+Variable name | Type and permitted values | Definition | Collection or assessment method | Timing
+Cow_ID | Text identifier | Permanent anonymous identifier for the cow across all visits and lactations. | Assign once; verify ear tag/marking at every visit. Do not create a new Cow_ID after calving. | Each row
+Local_Tag_ID | Text | FarmΓÇÖs tag/name used to physically identify the cow. | Transcribe exactly; use photographs/markings if no tag exists. | Baseline; verify each visit
+Lactation_ID | Text identifier | Identifier for a specific cow-lactation beginning at a recorded calving. | Create a new Lactation_ID after each calving, while retaining Cow_ID. | Each row
+Breed_Genetic_Group | Controlled text | Recorded breed or crossbreed/genetic group. | Use farm records where available; otherwise owner report plus observable phenotype. Avoid unsupported precision. | Baseline
+Cow_Birth_Date | Excel date or blank | Documented date of birth. | Use a reliable farm record only; leave blank when unknown and enter estimated age separately. | Baseline
+Cow_Age_Years | Decimal years | Best estimate of age when birth date is unavailable. | Use records, dentition assessment or farmer estimate; document the source in Notes. | Baseline
+Cow_Source | Homebred; Purchased; Gift/transfer; Other; Unknown | How the cow entered the herd. | Owner/manager interview or herd record. | Baseline
+Parity | Integer 1ΓÇô25 | Number of calvings, including the current calving. | Use calving records; otherwise obtain a consistent owner estimate. | Each lactation
+Calving_Date | Excel date YYYY-MM-DD | Date the current lactation began. | Prefer written record; otherwise obtain the best manager estimate and flag uncertainty in Notes. | Each lactation
+DIM_DERIVED | Integer days; generated | Days in milk: Visit_Date minus Calving_Date. | Excel formula; do not type over it. Confirm negative or implausible values against source dates. | Each row
+Pregnancy_Status | Pregnant; Not pregnant; Unknown; Not assessed | Current pregnancy classification. | Use veterinary diagnosis/record when available; do not infer pregnancy from farmer expectation alone. | Update when assessed
+Previous_Clinical_Mastitis | Yes; No; Unknown | History of clinical mastitis before the present visit/current study period. | Review records and interview owner/milker; use Unknown if reliable history is unavailable. | Baseline; update
+Previous_High_SCC_CMT | Yes; No; Unknown | Previously recorded elevated quantitative SCC or positive CMT. | Use prior laboratory/CMT records; do not infer from treatment alone. | Baseline; update
+Dry_Cow_Therapy_Previous | Blanket; Selective; None; Unknown | Antimicrobial dry-cow therapy used at the end of the preceding lactation. | Verify product/treatment record where possible; interview manager if no record. | Each lactation
+Teat_Sealant_Previous | Routine; Selective; None; Unknown | Use of an internal teat sealant at the preceding dry-off. | Verify product/treatment record or manager report. | Each lactation
+
+=== TABLE 4 (14 rows x 5 cols) ===
+Variable name | Type and permitted values | Definition | Collection or assessment method | Timing
+Cow_Milk_Yield_Value | Decimal 0ΓÇô200 | Measured milk yield for the period stated in Cow_Yield_Period. | Use a calibrated scale/meter or graduated container; record the method in Notes if nonstandard. | Each visit
+Cow_Milk_Yield_Unit | kg; L | Unit used for Cow_Milk_Yield_Value. | Select the actual measurement unit; do not mix kg and L without the unit. | Each visit
+Cow_Yield_Period | Morning; Evening; 24-hour; Test milking; Other | Time basis represented by the yield value. | Select the observed/recorded period. Do not label a single milking as 24-hour yield. | Each visit
+Cow_Milking_Frequency | Integer | Number of milkings received by this cow per 24 hours. | Ask the milker; record cow-specific deviations from the herd routine. | Each visit
+Cow_BCS_Value | Decimal on named scale | Body condition score reflecting visible/palpable fat cover. | Recommended 1ΓÇô5 scale in 0.25 increments. Assess loin and tail-head consistently before or after milking; same trained assessor where possible. | Each visit
+Cow_BCS_Scale | Text, e.g., 1ΓÇô5 | Named range used for the BCS value. | Enter 1ΓÇô5 if the recommended scale is used; never combine values from different scales without recording the scale. | Each visit
+Cow_Locomotion_Score | Ordinal 1ΓÇô5 | Degree of lameness: 1 normal, 2 imperfect, 3 moderately lame, 4 lame, 5 severely lame. | Observe the cow walking on a flat, nonslip surface using the same trained assessor. | Each visit
+Cow_Udder_Hygiene_Score | Ordinal 1ΓÇô4 | Udder/upper hind-limb cleanliness: 1 clean, 2 slightly dirty, 3 moderately dirty, 4 heavily covered with adherent dirt/manure. | Score before udder washing using standard photographs and the same side/view. | Each visit
+Cow_Rectal_Temperature_C | Decimal ┬░C, 30ΓÇô45; blank if not taken | Rectal body temperature. | Use a clean calibrated digital thermometer with appropriate restraint; disinfect between cows. | When clinically indicated
+Cow_Concurrent_Disease_Signs | Free text or controlled diagnosis | Other disease/signs present that could affect SCC or cow condition. | Clinical observation plus farm/veterinary record; use standard diagnostic terms and avoid unsupported diagnoses. | Each visit
+Cow_Antimicrobial_Previous_14d | Yes; No; Unknown | Any systemic or intramammary antimicrobial given in the 14 days preceding the visit. | Review treatment records/product containers and interview staff. | Each visit
+Cow_Mastitis_Treatment_Since_Last | Yes; No; Unknown | Mastitis-directed treatment since the preceding scheduled visit. | Verify against treatment log and link the Tx_Event_ID when available. | Each visit
+Cow_Incomplete_Milking_or_Suckling | Yes; No; Unknown | Incomplete milk removal or calf suckling around the sampled milking. | Observe milking/suckling and ask the milker; describe circumstances in Notes. | Each visit
+
+=== TABLE 5 (15 rows x 5 cols) ===
+Variable name | Type and permitted values | Definition | Collection or assessment method | Timing
+Quarter | LF; RF; LR; RR | Udder quarter represented by the row: left front, right front, left rear or right rear. | Confirm orientation while standing behind the cow and use the same convention throughout. | Each row
+Quarter_Functional_Status | Functional; Blind/nonfunctional; Absent; Unknown | Whether the quarter produces milk and can be examined. | Inspect, palpate and attempt careful forestripping; do not CMT a blind/absent quarter. | Each visit
+Quarter_Clinical_Mastitis | Yes; No; Unknown | Visible abnormal milk with or without local/systemic inflammatory signs. | Forestrip before CMT and inspect milk, udder and cow. Clinical status is not determined by CMT alone. | Each visit
+Quarter_Clinical_Grade | 0 None; 1 Mild; 2 Moderate; 3 Severe; Not assessed | Severity: 1 abnormal milk only; 2 abnormal milk plus udder swelling/heat/pain; 3 systemic illness such as fever, depression, dehydration or anorexia. | Assess before treatment using the stated definitions; urgent veterinary referral for severe disease. | Clinical cases
+Quarter_Milk_Abnormality | Yes; No; Unknown | Visible flakes, clots, watery secretion, blood, pus or abnormal colour/consistency. | Examine foremilk against a dark strip cup/surface under adequate light. | Each visit
+Quarter_Swelling_Heat_Pain | Yes; No; Unknown | One or more local inflammatory signs in the quarter. | Compare quarters by visual inspection and gentle palpation; avoid excessive pressure. | Each visit
+Quarter_Teat_End_Score | Ordinal 1ΓÇô4 or locally validated scale | Teat-end hyperkeratosis: 1 no ring/smooth; 2 smooth or slightly rough ring; 3 rough raised ring; 4 very rough/cracked ring. | Inspect clean, dry teat end immediately after milking with standard reference photographs. | Each visit or monthly
+Quarter_Teat_Lesion | Yes; No; Unknown | Any wound, crack, ulcer, wart, erosion or other teat-skin lesion. | Visual inspection and gentle palpation; describe type/location in Quarter_Udder_Finding. | Each visit
+Quarter_Udder_Finding | Free text | Other quarter/udder finding not fully captured by coded variables. | Record concise standard terms, e.g., induration, fibrosis, asymmetry, injury or oedema. | Each visit
+CMT_Score | N; T; 1; 2; 3; Not done | Ordinal CMT reaction: N no thickening; T transient/slight thickening; 1 distinct weak gel; 2 immediate distinct gel/slight peak; 3 strong gel/prominent mass. | Use equal milk and reagent volumes, rotate gently about 10 seconds and read immediately under consistent light. Collect culture samples first. | Each functional quarter/visit
+CMT_Positive_DERIVED | Yes; No; Not assessable; generated | Primary classification: scores 1ΓÇô3 = Yes; N or T = No; missing/not done = Not assessable. Trace remains separately available in CMT_Score. | Excel formula; do not overwrite. Alternative trace-positive definition may be used only in sensitivity analysis. | Each row
+CMT_Reader_ID | Text/code | Identifier of the person assigning the CMT score. | Use the trained readerΓÇÖs preassigned code. Reader must record the score before consulting previous results. | Each CMT
+CMT_Reagent_Lot | Text | ManufacturerΓÇÖs lot/batch number for the reagent. | Transcribe from the reagent container. | Each visit/lot
+CMT_Reagent_Expiry | Excel date YYYY-MM-DD | ManufacturerΓÇÖs expiry date for CMT reagent. | Transcribe from container; do not use expired or improperly stored reagent. | Each visit/lot
+
+=== TABLE 6 (13 rows x 5 cols) ===
+Variable name | Type and permitted values | Definition | Collection or assessment method | Timing
+Lab_Sample_ID | Text identifier | Unique identifier linking the physical milk sample and laboratory record to the field row. | Prelabel sterile vial; verify cow, quarter and visit before collection. Never reuse. | Each sample
+Lab_Sample_Type | Quarter; Composite cow | Whether milk represents one quarter or a cow composite. | Select Quarter for the rowΓÇÖs quarter sample. Enter a composite cow SCC only once per cow-visit, preferably on the LF row. | Each sample
+Lab_Collected_Before_Treatment | Yes; No; Unknown | Whether sample collection preceded antimicrobial administration for the episode. | Confirm collection and treatment times from field/treatment records. | Each sample
+Lab_SCC_cells_mL | Integer cells/mL | Raw quantitative somatic cell count reported by the instrument/laboratory. | Use a validated cell-count method; record the numeric result without converting a CMT score into SCC. | Monthly composite or targeted quarter sample
+Lab_SCC_Result_Flag | Within range; Below range; Above range; Not done; Unknown | Analytical status relative to the laboratory instrumentΓÇÖs validated reportable range. | Copy the flag from the laboratory report; do not invent a numeric value for censored results. | Each SCC result
+SCS_DERIVED | Decimal; generated | Somatic cell score calculated as log2(SCC/100,000) + 3. | Excel formula based on Lab_SCC_cells_mL; do not overwrite. | Each numeric SCC
+Lab_Culture_Result_Category | Pathogen identified; No growth; Mixed/contaminated; Not done; Pending | Overall interpretation of the milk culture. | Apply the laboratoryΓÇÖs written culture interpretation rule and record the final category. | Each culture
+Lab_Organism_Primary | Controlled organism name | Primary organism identified from the sample. | Record genus/species as supported by the laboratory method; use a standard taxonomy list. | Positive culture
+Lab_Isolate_ID | Text identifier | Unique laboratory identifier for the cultured isolate. | Assign in the laboratory register and label stored isolate consistently. | Each isolate
+Lab_Mixed_Contaminated | Yes; No; Unknown | Whether growth meets the protocol definition for mixed/contaminated culture. | Apply the prespecified number/type-of-colonies rule; do not classify subjectively in the field. | Each culture
+Lab_AST_Method_Standard | Text | Antimicrobial susceptibility method and interpretive standard/version. | Record method (e.g., disk diffusion/MIC), standard and edition/year used by the laboratory. | Each AST batch/isolate
+Lab_AST_Summary | Structured text | Concise isolate susceptibility result by antimicrobial. | Use antimicrobial code plus S/I/R or MIC, consistent with the recorded standard; retain the full laboratory worksheet separately. | Each tested isolate
+
+=== TABLE 7 (12 rows x 5 cols) ===
+Variable name | Type and permitted values | Definition | Collection or assessment method | Timing
+Tx_Event_ID | Text identifier | Unique identifier for a clinical mastitis/treatment episode. | Assign once per episode and use the same ID for all linked quarter rows. | Each episode
+Tx_Current_Treatment | Yes; No; Unknown | Whether the cow/quarter is receiving mastitis treatment on the visit date. | Check treatment log, marked cow and product administration record. | Each visit
+Tx_Product_Trade_Name | Text | Commercial name of the administered product. | Transcribe exactly from packaging or treatment record. | Each treatment
+Tx_Active_Ingredient | Text | Generic antimicrobial or other active ingredient(s). | Transcribe from product label; list all actives in combination products. | Each treatment
+Tx_Dose | Numeric | Amount administered at each dosing occasion. | Record the actual dose, not only the recommended dose. | Each treatment
+Tx_Dose_Unit | Text: mL, mg, tube, tablet, etc. | Unit corresponding to Tx_Dose. | Use the product/administration unit; never enter dose without a unit. | Each treatment
+Tx_Route | Intramammary; IM; IV; SC; Oral; Topical; Other | Route by which treatment was administered. | Verify from administration record or directly observe. | Each treatment
+Tx_Start_Date | Excel date YYYY-MM-DD | Date treatment began. | Use actual first administration date. | Each treatment
+Tx_Stop_Date | Excel date YYYY-MM-DD | Date the final dose was administered. | Complete after the course ends; distinguish planned from actual stop date. | Each treatment
+Tx_Milk_Withdrawal_End_Date | Excel date YYYY-MM-DD | First date milk may legally/safely re-enter the food chain under the applicable label/veterinary instruction. | Calculate from the final dose using the product label/veterinary direction and document deviations. | Each treatment
+Tx_Outcome_Next_Visit | Resolved; Improved; Unchanged; Worsened; Recurred; Culled/died; Pending; Unknown | Clinical outcome assessed at the next scheduled observation. | Compare signs/CMT/SCC with the episode record using the prespecified outcome definition. | Next visit
+
+=== TABLE 8 (10 rows x 5 cols) ===
+Variable name | Type and permitted values | Definition | Collection or assessment method | Timing
+Farm_Main_Forage | Text or controlled feed category | Predominant roughage/forage offered to lactating cows during the current interval. | Observe feed and ask the manager; record a standard name, e.g., pasture, hay, silage, crop residue or fresh grass. | Each visit or when changed
+Farm_Concentrate_Offered | Yes; No; Unknown | Whether lactating cows receive concentrate supplementation. | Observe ration/feeding and confirm with manager; describe product/amount in Notes when available. | Each visit
+Farm_Mineral_Supplement | Yes; No; Unknown | Whether a formulated mineral mix or mineral lick is routinely available. | Observe product/lick and confirm frequency with manager. | Each visit
+Farm_Water_Source | Borehole; Well; Tap; Surface water; Tanker; Other; Unknown | Principal water source for drinking and milking hygiene. | Direct observation plus manager confirmation; record the predominant source. | Baseline; update if changed
+Farm_Forestripping | Always; Sometimes; Never; Unknown | Routine removal/inspection of first milk streams before milking. | Observe milking; ask only when direct observation is impossible. | Each observed visit
+Farm_Premilking_Teat_Cleaning | Water only; Water and cloth; Disinfectant/predip; Dry cleaning; None; Other | Main teat-cleaning method before attachment/hand milking. | Observe the full routine for several cows before giving feedback. | Each observed visit
+Farm_Drying_Material | Individual towel; Shared towel; Paper towel; Air dry; Not dried; Other | Method/material used to dry teats after premilking cleaning. | Observe whether material is reused between cows and choose the predominant practice. | Each observed visit
+Farm_Gloves_Used | Always; Sometimes; Never; Unknown | Routine use of disposable/cleanable gloves by milkers. | Direct observation; classify across milkers involved in the observed session. | Each observed visit
+Farm_Postmilking_Teat_Disinfection | Always; Sometimes; Never; Unknown | Application of approved teat disinfectant immediately after milking. | Observe product application and teat coverage; describe product or inadequate coverage in Notes. | Each observed visit
+
+=== TABLE 9 (4 rows x 5 cols) ===
+Variable name | Type and permitted values | Definition | Collection or assessment method | Timing
+Missing_Reason | Not missing; Dry; Absent; Sold; Dead; Refused; Could not restrain; Blind quarter; Sample lost; Test failure; Other | Reason an expected cow, quarter or test observation is unavailable. | Select the most specific reason. Never enter 0, 99 or 999 as missing values. Explain Other in Notes. | Each incomplete row/expected observation
+Protocol_Deviation | Free text | Any departure from the approved schedule, sampling, CMT, SCC, culture or recording procedure. | Describe what occurred, why, affected records and corrective action without altering the raw result. | When applicable
+Notes | Free text | Concise contextual information needed to interpret the row. | Use objective, standard wording; do not place names or unnecessary personally identifying information here. | When applicable

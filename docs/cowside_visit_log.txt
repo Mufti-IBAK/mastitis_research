@@ -1,0 +1,290 @@
+﻿=== PAGE 1 ===
+LONGITUDINAL UDDER HEALTH STUDY  |  COWSIDE VISIT LOG
+Farm ID:
+Visit ID:
+Date:
+Paper sheet maps to: FARM_VISIT, COW_VISIT, QUARTER_VISIT, SAMPLE_LAB, TREATMENT
+Page 1 of 3
+Section A: Farm & Visit Header (FARM_VISIT)
+State / LGA:
+Observer ID(s):
+Farm ID:
+Lactating Cows Present:
+_______ / Expected: _______
+Visit ID:
+Floor Wetness (0-3):
+ΓÿÉ Dry  ΓÿÉ Moist  ΓÿÉ Wet  ΓÿÉ Slurry
+Date (YYYY-MM-DD):
+2026 - ______ - ______
+Bedding Condition:
+ΓÿÉ Clean/Dry  ΓÿÉ Damp  ΓÿÉ Dirty
+Arrival / Milking Time:
+______ : ______
+Fly Abundance (0-3):
+ΓÿÉ Low  ΓÿÉ Moderate  ΓÿÉ High
+Milking Method:
+ΓÿÉ Hand   ΓÿÉ Machine
+Feed / Routine Changes:
+ΓÿÉ None  ΓÿÉ Yes: ____________
+Section B: Fill one table per cow. Tick boxes or write codes in line with the reference key on the last page.
+Cow Record 01
+Cow ID:
+Local Tag:
+Parity:
+Calving Date:
+DIM:
+Yield (kg/L):
+BCS (1-5):
+Udder Hygiene (1-4):
+Rectal Temp (C):
+Mastitis/Rx past 14d:
+ΓÿÉ No   ΓÿÉ Yes
+Qtr
+Functional?
+Clinical
+Mastitis?
+Grade
+(1-3)
+Milk Signs
+Udder Signs
+(Heat/Pain/Swelling)
+CMT Score
+(N,T,1,2,3)
+Lab Sample ID
+(if collected)
+Tx Given?
+Notes / Missing Reason
+LF
+ΓÿÉ Yes
+ΓÿÉ Blind
+ΓÿÉ No
+ΓÿÉ Yes
+ΓÿÉ Normal
+ΓÿÉ Clots  ΓÿÉ Watery
+ΓÿÉ Normal
+ΓÿÉ Swollen  ΓÿÉ Hard/Hot
+ΓÿÉ No
+ΓÿÉ Yes
+RF
+ΓÿÉ Yes
+ΓÿÉ Blind
+ΓÿÉ No
+ΓÿÉ Yes
+ΓÿÉ Normal
+ΓÿÉ Clots  ΓÿÉ Watery
+ΓÿÉ Normal
+ΓÿÉ Swollen  ΓÿÉ Hard/Hot
+ΓÿÉ No
+ΓÿÉ Yes
+LR
+ΓÿÉ Yes
+ΓÿÉ Blind
+ΓÿÉ No
+ΓÿÉ Yes
+ΓÿÉ Normal
+ΓÿÉ Clots  ΓÿÉ Watery
+ΓÿÉ Normal
+ΓÿÉ Swollen  ΓÿÉ Hard/Hot
+ΓÿÉ No
+ΓÿÉ Yes
+RR
+ΓÿÉ Yes
+ΓÿÉ Blind
+ΓÿÉ No
+ΓÿÉ Yes
+ΓÿÉ Normal
+ΓÿÉ Clots  ΓÿÉ Watery
+ΓÿÉ Normal
+ΓÿÉ Swollen  ΓÿÉ Hard/Hot
+ΓÿÉ No
+ΓÿÉ Yes
+
+=== PAGE 2 ===
+LONGITUDINAL UDDER HEALTH STUDY  |  COWSIDE VISIT LOG
+Farm ID:
+Visit ID:
+Date:
+Paper sheet maps to: FARM_VISIT, COW_VISIT, QUARTER_VISIT, SAMPLE_LAB, TREATMENT
+Page 2 of 3
+Cow Record 02
+Cow ID:
+Local Tag:
+Parity:
+Calving Date:
+DIM:
+Yield (kg/L):
+BCS (1-5):
+Udder Hygiene (1-4):
+Rectal Temp (C):
+Mastitis/Rx past 14d:
+ΓÿÉ No   ΓÿÉ Yes
+Qtr
+Functional?
+Clinical
+Mastitis?
+Grade
+(1-3)
+Milk Signs
+Udder Signs
+(Heat/Pain/Swelling)
+CMT Score
+(N,T,1,2,3)
+Lab Sample ID
+(if collected)
+Tx Given?
+Notes / Missing Reason
+LF
+ΓÿÉ Yes
+ΓÿÉ Blind
+ΓÿÉ No
+ΓÿÉ Yes
+ΓÿÉ Normal
+ΓÿÉ Clots  ΓÿÉ Watery
+ΓÿÉ Normal
+ΓÿÉ Swollen  ΓÿÉ Hard/Hot
+ΓÿÉ No
+ΓÿÉ Yes
+RF
+ΓÿÉ Yes
+ΓÿÉ Blind
+ΓÿÉ No
+ΓÿÉ Yes
+ΓÿÉ Normal
+ΓÿÉ Clots  ΓÿÉ Watery
+ΓÿÉ Normal
+ΓÿÉ Swollen  ΓÿÉ Hard/Hot
+ΓÿÉ No
+ΓÿÉ Yes
+LR
+ΓÿÉ Yes
+ΓÿÉ Blind
+ΓÿÉ No
+ΓÿÉ Yes
+ΓÿÉ Normal
+ΓÿÉ Clots  ΓÿÉ Watery
+ΓÿÉ Normal
+ΓÿÉ Swollen  ΓÿÉ Hard/Hot
+ΓÿÉ No
+ΓÿÉ Yes
+RR
+ΓÿÉ Yes
+ΓÿÉ Blind
+ΓÿÉ No
+ΓÿÉ Yes
+ΓÿÉ Normal
+ΓÿÉ Clots  ΓÿÉ Watery
+ΓÿÉ Normal
+ΓÿÉ Swollen  ΓÿÉ Hard/Hot
+ΓÿÉ No
+ΓÿÉ Yes
+Cow Record 03
+Cow ID:
+Local Tag:
+Parity:
+Calving Date:
+DIM:
+Yield (kg/L):
+BCS (1-5):
+Udder Hygiene (1-4):
+Rectal Temp (C):
+Mastitis/Rx past 14d:
+ΓÿÉ No   ΓÿÉ Yes
+Qtr
+Functional?
+Clinical
+Mastitis?
+Grade
+(1-3)
+Milk Signs
+Udder Signs
+(Heat/Pain/Swelling)
+CMT Score
+(N,T,1,2,3)
+Lab Sample ID
+(if collected)
+Tx Given?
+Notes / Missing Reason
+LF
+ΓÿÉ Yes
+ΓÿÉ Blind
+ΓÿÉ No
+ΓÿÉ Yes
+ΓÿÉ Normal
+ΓÿÉ Clots  ΓÿÉ Watery
+ΓÿÉ Normal
+ΓÿÉ Swollen  ΓÿÉ Hard/Hot
+ΓÿÉ No
+ΓÿÉ Yes
+RF
+ΓÿÉ Yes
+ΓÿÉ Blind
+ΓÿÉ No
+ΓÿÉ Yes
+ΓÿÉ Normal
+ΓÿÉ Clots  ΓÿÉ Watery
+ΓÿÉ Normal
+ΓÿÉ Swollen  ΓÿÉ Hard/Hot
+ΓÿÉ No
+ΓÿÉ Yes
+LR
+ΓÿÉ Yes
+ΓÿÉ Blind
+ΓÿÉ No
+ΓÿÉ Yes
+ΓÿÉ Normal
+ΓÿÉ Clots  ΓÿÉ Watery
+ΓÿÉ Normal
+ΓÿÉ Swollen  ΓÿÉ Hard/Hot
+ΓÿÉ No
+ΓÿÉ Yes
+RR
+ΓÿÉ Yes
+ΓÿÉ Blind
+ΓÿÉ No
+ΓÿÉ Yes
+ΓÿÉ Normal
+ΓÿÉ Clots  ΓÿÉ Watery
+ΓÿÉ Normal
+ΓÿÉ Swollen  ΓÿÉ Hard/Hot
+ΓÿÉ No
+ΓÿÉ Yes
+
+=== PAGE 3 ===
+LONGITUDINAL UDDER HEALTH STUDY  |  COWSIDE VISIT LOG
+Farm ID:
+Visit ID:
+Date:
+Paper sheet maps to: FARM_VISIT, COW_VISIT, QUARTER_VISIT, SAMPLE_LAB, TREATMENT
+Page 3 of 3
+Section C: Clinical Treatment Log (TREATMENT)
+Fill only if treatment is initiated or ongoing at this visit.
+Cow ID
+Qtr(s)
+Grade
+Sample ID Before Tx?
+Product Trade Name
+Active Ingredient
+Route / Dose
+Start Date
+Milk Withhold Until
+ΓÿÉ Yes  ΓÿÉ No: _____
+ΓÿÉ Yes  ΓÿÉ No: _____
+ΓÿÉ Yes  ΓÿÉ No: _____
+ΓÿÉ Yes  ΓÿÉ No: _____
+Section D: Quick Field Reference Keys
+CMT Scores
+N (Negative): Liquid, homogeneous, no gel formation.
+T (Trace): Slight, fleeting thickening when tilted; quickly vanishes.
+1 (Weak Positive): Distinct thickening/gel; no central heap formed.
+2 (Distinct Positive): Immediate gel thickening, moves toward center of well.
+3 (Strong Positive): Heavy, viscous gel adhering to plastic, producing a central peak.
+Clinical Mastitis Grades
+Grade 1 (Mild): Changes in milk only (flakes, clots, watery, blood-tinged).
+Grade 2 (Moderate): Milk changes + local udder inflammation (swelling, heat, redness, pain).
+Grade 3 (Severe): Milk changes + local signs + systemic illness (T > 39.5 ┬░C, depressed, recumbent).
+Udder Hygiene Scale (1-4)
+1: Completely clean.
+2: Slightly dirty (<2% surface soiled).
+3: Moderately dirty (2-30% soiled with splash/caked dirt).
+4: Severely dirty (>30% covered in caked dirt/manure).
+

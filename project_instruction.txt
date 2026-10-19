@@ -1,0 +1,74 @@
+Dear Dr Muhammad Jimoh,
+
+I am forwarding the study protocol, Excel data-entry workbook and some videos demonstrating the California Mastitis Test (CMT). Please study the protocol carefully and watch the videos before data collection begins.
+
+The proposed study is a 12-month longitudinal investigation of udder health on multiple dairy farms. Every enrolled farm should preferably be visited once every two weeks. During each visit, all lactating cows present on the farm should be examined, regardless of their parity, stage of lactation or days in milk. Each functional udder quarter—left front (LF), right front (RF), left rear (LR) and right rear (RR)—must be tested and recorded separately.
+
+The following measurements are proposed:
+
+1. CMT should be conducted on all four quarters of every lactating cow at each fortnightly visit.
+2. Quantitative somatic cell count (SCC), where available, should be conducted monthly using a composite milk sample from each cow.
+3. Separate quarter milk samples should be collected for laboratory SCC and bacteriological culture from:
+   - quarters showing clinical mastitis;
+   - newly CMT-positive quarters;
+   - quarters remaining positive during consecutive visits; and
+   - selected CMT-negative quarters for comparison.
+4. Milk intended for culture must be collected aseptically before performing the CMT and before administering any antimicrobial treatment.
+5. Clinical mastitis cases, treatments, farm-management changes and relevant environmental conditions must also be recorded.
+
+Please maintain the same Farm ID and Cow ID throughout the study. Never assign a new Cow ID simply because the cow enters another lactation. A new Lactation ID should instead be created following each new calving.
+
+Regarding the Excel workbook, the worksheets have different roles because the information is collected at different levels. Please use them as follows:
+
+- `FARM`: Complete this only once for each farm at enrolment.
+- `FARM_VISIT`: Complete one row for each farm visit. This records visit dates and changing farm-level conditions.
+- `COW`: Complete this only once for each enrolled cow.
+- `LACTATION`: Complete one row for each cow’s current lactation. Create another row only after the cow calves again and begins a new lactation.
+- `COW_VISIT`: Complete one row for every cow examined during every visit. Enter DIM, parity, milk yield, body condition, udder hygiene, disease and recent treatment information here.
+- `QUARTER_VISIT`: This is the principal worksheet for repeated CMT data entry. Enter four rows for each examined cow at every visit—one row each for LF, RF, LR and RR. Record the functional status, clinical signs, CMT score, SCC result, sample ID and teat or udder findings for each quarter.
+- `SAMPLE_LAB`: Use this whenever a composite or quarter milk sample is submitted for quantitative SCC, culture or antimicrobial susceptibility testing.
+- `TREATMENT`: Use this for every clinical mastitis or treatment event.
+- `ENVIRONMENT`: Use this for daily temperature, relative humidity, rainfall and temperature–humidity index data obtained from a farm logger or the nearest reliable weather station.
+- `DATA_QUALITY`: Do not enter research data into this sheet. It automatically checks the workbook for missing identifiers, duplicated records and other data-entry problems.
+- `README`: This contains the workbook instructions and examples of the recommended identification codes.
+
+Therefore, the main sheet for entering the CMT result for each udder quarter is exactly:
+
+`QUARTER_VISIT`
+
+However, `COW_VISIT` must also be completed for the corresponding cow on the same visit. For example, if cow C001 is examined on Visit 01, enter one row for C001 in `COW_VISIT` and four rows for C001 in `QUARTER_VISIT`.
+
+For the CMT procedure, please follow the videos and these basic steps:
+
+1. Wear clean gloves and examine the udder and milk for visible abnormalities.
+2. Forestrip each quarter and discard the first streams appropriately.
+3. If culture is required, collect the aseptic milk sample before conducting the CMT.
+4. Place approximately equal amounts of milk from LF, RF, LR and RR into their corresponding wells on the CMT paddle.
+5. Add approximately an equal volume of CMT reagent.
+6. Rotate the paddle gently for about 10 seconds.
+7. Interpret the reaction immediately, mainly according to the degree of gel formation or viscosity.
+8. Record the result for each quarter before moving to the next cow.
+
+Interpret the CMT results as follows:
+
+- `N – Negative`: The mixture remains liquid, with no visible thickening or gel formation.
+- `T – Trace`: Slight or momentary thickening is observed, but it disappears or remains poorly defined. This is considered suspicious or borderline.
+- `1 – Weak positive`: A slight but distinct gel forms, although there is usually no clear central peak.
+- `2 – Distinct positive`: Gel formation occurs immediately, and the mixture thickens noticeably, often producing a slight central peak when the paddle is rotated.
+- `3 – Strong positive`: A heavy gel forms, adheres to the paddle and usually produces a prominent central peak or mass.
+
+For the primary study classification, scores `1`, `2` and `3` will be regarded as CMT-positive. `N` will be negative, while `T` must remain recorded separately as a trace or borderline result. Please do not convert CMT scores into exact SCC values because CMT provides only a semi-quantitative estimate. Exact SCC values must come from the quantitative laboratory test.
+
+If visibly abnormal milk, udder swelling, heat, pain or systemic illness is present, record the cow as having clinical mastitis and assign the appropriate clinical grade. Do not rely on CMT alone to define a clinical case.
+
+Before formal data collection begins, I recommend that the research team practise the procedure together and independently score the same cows. Any disagreement should be discussed until everyone applies the same interpretation. The reagent brand, batch number, expiry date and identity of the person reading the test should also be recorded.
+
+Please pilot the complete procedure and Excel entry system on one farm before enrolling all study farms. The pilot will help us identify unclear questions, unsuitable codes or logistical problems without compromising the main study.
+
+Kindly review the attached materials carefully and let me know if any part requires clarification before fieldwork begins. Accurate identification, consistent fortnightly visits, correct quarter-level CMT interpretation and immediate data entry will be essential to the success of this longitudinal study.
+
+Thank you, and I look forward to working with you on this important research.
+
+Kind regards,
+
+Aminu Shittu

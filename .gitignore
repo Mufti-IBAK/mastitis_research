@@ -1,0 +1,31 @@
+# Flutter and Dart
+**/build/
+**/.dart_tool/
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.pub-cache/
+**/.pub/
+
+# Android
+**/.gradle/
+**/local.properties
+**/GeneratedPluginRegistrant.java
+*.keystore
+
+# Desktop Builder temporary builds
+desktop_builder/app_data/
+desktop_builder/MastitisResearch.exe
+installer_output/
+
+# IDE & Editor
+**/.idea/
+**/.vscode/
+**/*.iml
+
+# Testing logs & screenshots
+*.png
+*.xml
+*.log
+*.lnk
+*.bat
+/*.apk

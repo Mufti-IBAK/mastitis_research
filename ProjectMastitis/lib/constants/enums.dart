@@ -1,0 +1,34 @@
+class Enums {
+  static const List<String> states = ['Jigawa', 'Kaduna', 'Kano', 'Katsina', 'Kebbi', 'Sokoto', 'Zamfara', 'Other'];
+  static const List<String> productionSystems = ['Intensive', 'Semi-intensive', 'Extensive/transhumant', 'Mixed'];
+  static const List<String> milkingMethods = ['Hand', 'Bucket machine', 'Pipeline/parlour', 'Other'];
+  static const List<String> housingTypes = ['Tie stall', 'Loose housing', 'Open yard', 'Pasture', 'Mixed', 'Other'];
+  static const List<String> floorWetness = ['Dry', 'Damp', 'Wet', 'Muddy', 'Unknown'];
+  static const List<String> beddingCondition = ['Absent', 'Dry', 'Damp', 'Wet', 'Unknown'];
+  static const List<String> manureAccumulation = ['Low', 'Moderate', 'High', 'Unknown'];
+  static const List<String> flyAbundance = ['Low', 'Moderate', 'High', 'Unknown'];
+  static const List<String> yesNoUnknown = ['Yes', 'No', 'Unknown'];
+  static const List<String> cowSource = ['Homebred', 'Purchased', 'Gift/transfer', 'Other', 'Unknown'];
+  static const List<String> pregnancyStatus = ['Pregnant', 'Not pregnant', 'Unknown', 'Not assessed'];
+  static const List<String> dryCowTherapy = ['Blanket', 'Selective', 'None', 'Unknown'];
+  static const List<String> teatSealant = ['Routine', 'Selective', 'None', 'Unknown'];
+  static const List<String> milkYieldUnits = ['kg', 'L'];
+  static const List<String> yieldPeriods = ['Morning', 'Evening', '24-hour', 'Test milking', 'Other'];
+  static const List<String> quarters = ['LF', 'RF', 'LR', 'RR'];
+  static const List<String> functionalStatus = ['Functional', 'Blind/nonfunctional', 'Absent', 'Unknown'];
+  static const List<String> clinicalGrades = ['0 None', '1 Mild', '2 Moderate', '3 Severe', 'Not assessed'];
+  static const List<String> cmtScores = ['N', 'T', '1', '2', '3', 'Not done'];
+  static const List<String> labSampleTypes = ['Quarter', 'Composite cow'];
+  static const List<String> sccResultFlags = ['Within range', 'Below range', 'Above range', 'Not done', 'Unknown'];
+  static const List<String> cultureResultCategories = ['Pathogen identified', 'No growth', 'Mixed/contaminated', 'Not done', 'Pending'];
+  static const List<String> txRoutes = ['Intramammary', 'IM', 'IV', 'SC', 'Oral', 'Topical', 'Other'];
+  static const List<String> txOutcomes = ['Resolved', 'Improved', 'Unchanged', 'Worsened', 'Recurred', 'Culled/died', 'Pending', 'Unknown'];
+  static const List<String> waterSources = ['Borehole', 'Well', 'Tap', 'Surface water', 'Tanker', 'Other', 'Unknown'];
+  static const List<String> forestripping = ['Always', 'Sometimes', 'Never', 'Unknown'];
+  static const List<String> premilkingTeatCleaning = ['Water only', 'Water and cloth', 'Disinfectant/predip', 'Dry cleaning', 'None', 'Other'];
+  static const List<String> dryingMaterial = ['Individual towel', 'Shared towel', 'Paper towel', 'Air dry', 'Not dried', 'Other'];
+  static const List<String> glovesUsed = ['Always', 'Sometimes', 'Never', 'Unknown'];
+  static const List<String> postmilkingTeatDisinfection = ['Always', 'Sometimes', 'Never', 'Unknown'];
+  static const List<String> missingReasons = ['Not missing', 'Dry', 'Absent', 'Sold', 'Dead', 'Refused', 'Could not restrain', 'Blind quarter', 'Sample lost', 'Test failure', 'Other'];
+  static const List<String> txDoseUnits = ['mL', 'mg', 'tube', 'tablet', 'Other'];
+}

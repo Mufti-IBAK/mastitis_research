@@ -1,0 +1,27 @@
+﻿Longitudinal Udder Health Study Data Dictionary
+Definitions coding and collection procedures for the single sheet long format workbook
+This dictionary corresponds exactly to the 99 columns in the worksheet UDDER_HEALTH_DATA. The unit of observation is one cow ├ù one udder quarter ├ù one visit. Every examined cow therefore contributes four rows per visit, one each for LF, RF, LR and RR. The same permanent Cow_ID must be retained across all visits and lactations.
+Essential entry rules
+Enter four quarter rows for every examined cow-visit. Use the same Visit_ID, Cow_ID and Lactation_ID on all four rows and change only the Quarter and quarter-specific results.
+Repeat farm, cow and visit information across the four quarter rows. Enter a composite cow SCC only once per cow-visit, preferably on the LF row, to prevent double-counting.
+Do not overwrite Record_Key_DERIVED, DIM_DERIVED, CMT_Positive_DERIVED or SCS_DERIVED. Extend their formulas when additional rows are added.
+Blank does not mean No or zero. Use Missing_Reason whenever an expected observation is unavailable.
+Collect aseptic milk samples for culture before CMT and before antimicrobial treatment. CMT is ordinal and must never be converted into an invented exact SCC.
+Use ISO dates (YYYY-MM-DD), permanent identifiers and the controlled dropdown values already embedded in the workbook.
+CMT interpretation reference
+Variable dictionary
+Identifiers and visit variables
+Farm characteristics and visit conditions
+Cow and lactation characteristics
+Time varying cow measurements
+Quarter examination and CMT variables
+Laboratory variables
+Treatment variables
+Pilot farm management and husbandry variables
+Missingness and documentation variables
+Recommended quality assurance
+Train observers before the pilot and conduct blinded duplicate CMT scoring. Suggested weighted-kappa target is at least 0.70.
+Use standard photographs for udder hygiene, locomotion and teat-end scoring. Keep the same scoring scale throughout the study.
+Review identifiers, four-quarter completeness, dates, CMT scores, sample links and treatment dates within 24 hours of every visit.
+Retain raw laboratory reports and do not replace censored SCC results with arbitrary numbers.
+Document any change to definitions or permitted codes in a dated protocol amendment before applying it to new records.
