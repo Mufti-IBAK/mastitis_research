@@ -59,6 +59,11 @@ class _AllVisitsScreenState extends State<AllVisitsScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFF8FAFC),
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_rounded, color: Color(0xFF0F172A)),
+          tooltip: 'Back to Dashboard',
+          onPressed: () => Navigator.pop(context),
+        ),
         title: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -67,10 +72,20 @@ class _AllVisitsScreenState extends State<AllVisitsScreen> {
           ],
         ),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh_rounded, size: 20),
-            tooltip: 'Refresh',
-            onPressed: _fetchCloudData,
+          Padding(
+            padding: const EdgeInsets.only(right: 12, top: 8, bottom: 8),
+            child: OutlinedButton.icon(
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.white,
+                foregroundColor: const Color(0xFF0F766E),
+                side: const BorderSide(color: Color(0xFFCBD5E1)),
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              ),
+              icon: const Icon(Icons.refresh_rounded, size: 16),
+              label: const Text('Refresh Feed', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
+              onPressed: _fetchCloudData,
+            ),
           ),
         ],
       ),

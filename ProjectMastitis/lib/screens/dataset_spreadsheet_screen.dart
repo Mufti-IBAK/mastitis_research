@@ -324,11 +324,28 @@ class _DatasetSpreadsheetScreenState extends State<DatasetSpreadsheetScreen> {
         backgroundColor: Colors.white,
         foregroundColor: const Color(0xFF0F172A),
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_rounded, color: Color(0xFF0F172A)),
-          tooltip: 'Back to Dashboard',
-          onPressed: _handleBack,
-        ),
+        leadingWidth: isDesktop ? 160 : 56,
+        leading: isDesktop
+            ? Padding(
+                padding: const EdgeInsets.only(left: 14, top: 8, bottom: 8),
+                child: OutlinedButton.icon(
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: const Color(0xFFF1F5F9),
+                    foregroundColor: const Color(0xFF0F766E),
+                    side: const BorderSide(color: Color(0xFFCBD5E1)),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                  ),
+                  icon: const Icon(Icons.arrow_back_rounded, size: 16),
+                  label: const Text('Dashboard', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
+                  onPressed: _handleBack,
+                ),
+              )
+            : IconButton(
+                icon: const Icon(Icons.arrow_back_rounded, color: Color(0xFF0F172A)),
+                tooltip: 'Back to Dashboard',
+                onPressed: _handleBack,
+              ),
         title: isDesktop
             ? const Row(
                 children: [
@@ -339,38 +356,54 @@ class _DatasetSpreadsheetScreenState extends State<DatasetSpreadsheetScreen> {
               )
             : const Text('Study Dataset', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xFF0F172A))),
         actions: [
-          IconButton(
-            tooltip: 'Query Latest Cloud Data',
-            icon: const Icon(Icons.refresh_rounded, size: 20),
-            onPressed: _isLoading ? null : _loadData,
-          ),
-          if (isDesktop)
+          if (isDesktop) ...[
+            Padding(
+              padding: const EdgeInsets.only(top: 8, bottom: 8),
+              child: OutlinedButton.icon(
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: const Color(0xFF0F766E),
+                  side: const BorderSide(color: Color(0xFFCBD5E1)),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
+                onPressed: _isLoading ? null : _loadData,
+                icon: _isLoading
+                    ? const SizedBox(width: 14, height: 14, child: CircularProgressIndicator(color: Color(0xFF0F766E), strokeWidth: 2))
+                    : const Icon(Icons.refresh_rounded, size: 16),
+                label: const Text('Refresh Data', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
+              ),
+            ),
+            const SizedBox(width: 10),
             Padding(
               padding: const EdgeInsets.only(right: 16, top: 8, bottom: 8),
-              child: SizedBox(
-                height: 38,
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF0F766E),
-                    foregroundColor: Colors.white,
-                    elevation: 0,
-                    padding: const EdgeInsets.symmetric(horizontal: 14),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                  ),
-                  onPressed: _isExporting ? null : _exportToExcel,
-                  icon: _isExporting
-                      ? const SizedBox(width: 14, height: 14, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
-                      : const Icon(Icons.file_download_outlined, size: 16),
-                  label: const Text('Export Excel (.xlsx)', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color(0xFF0F766E),
+                  foregroundColor: Colors.white,
+                  elevation: 0,
+                  padding: const EdgeInsets.symmetric(horizontal: 14),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                 ),
+                onPressed: _isExporting ? null : _exportToExcel,
+                icon: _isExporting
+                    ? const SizedBox(width: 14, height: 14, child: CircularProgressIndicator(color: Colors.white, strokeWidth: 2))
+                    : const Icon(Icons.file_download_outlined, size: 16),
+                label: const Text('Export Excel (.xlsx)', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
               ),
-            )
-          else
+            ),
+          ] else ...[
+            IconButton(
+              tooltip: 'Query Latest Cloud Data',
+              icon: const Icon(Icons.refresh_rounded, size: 20),
+              onPressed: _isLoading ? null : _loadData,
+            ),
             IconButton(
               tooltip: 'Export Excel (.xlsx)',
               icon: const Icon(Icons.file_download_outlined, size: 22, color: Color(0xFF0F766E)),
               onPressed: _isExporting ? null : _exportToExcel,
             ),
+          ],
         ],
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(1),
@@ -385,33 +418,35 @@ class _DatasetSpreadsheetScreenState extends State<DatasetSpreadsheetScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
             child: Row(
               children: [
-                InkWell(
-                  borderRadius: BorderRadius.circular(6),
-                  onTap: _handleBack,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFF1F5F9),
-                      borderRadius: BorderRadius.circular(6),
-                    ),
-                    child: const Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(Icons.arrow_back_ios_new_rounded, size: 12, color: Color(0xFF0F766E)),
-                        SizedBox(width: 4),
-                        Text('Dashboard', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: Color(0xFF0F766E))),
-                      ],
+                if (!isDesktop) ...[
+                  InkWell(
+                    borderRadius: BorderRadius.circular(6),
+                    onTap: _handleBack,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFF1F5F9),
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                      child: const Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(Icons.arrow_back_ios_new_rounded, size: 12, color: Color(0xFF0F766E)),
+                          SizedBox(width: 4),
+                          Text('Dashboard', style: TextStyle(fontSize: 11, fontWeight: FontWeight.w700, color: Color(0xFF0F766E))),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(width: 8),
+                  const SizedBox(width: 8),
+                  Text(
+                    '/',
+                    style: TextStyle(fontSize: 12, color: Colors.grey.shade400),
+                  ),
+                  const SizedBox(width: 8),
+                ],
                 Text(
-                  '/',
-                  style: TextStyle(fontSize: 12, color: Colors.grey.shade400),
-                ),
-                const SizedBox(width: 8),
-                Text(
-                  '$totalRows records',
+                  '$totalRows records found',
                   style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: Color(0xFF64748B)),
                 ),
                 const Spacer(),

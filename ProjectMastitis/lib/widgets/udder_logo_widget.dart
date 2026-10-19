@@ -13,8 +13,8 @@ class UdderLogoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final logo = SvgPicture.asset(
-      'assets/icons/cow_udder_logo.svg',
+    final logo = Image.asset(
+      'assets/icons/logo.png',
       width: size,
       height: size,
       fit: BoxFit.contain,

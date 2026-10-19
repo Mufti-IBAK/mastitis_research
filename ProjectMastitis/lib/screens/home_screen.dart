@@ -553,27 +553,68 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           if (isDesktop) ...[
-            IconButton(
-              icon: const Icon(Icons.table_chart_rounded, size: 20, color: Color(0xFF0F766E)),
-              tooltip: '99-Column Dataset Spreadsheet',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => const DatasetSpreadsheetScreen()),
-                );
-              },
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: OutlinedButton.icon(
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: const Color(0xFFF1F5F9),
+                  foregroundColor: const Color(0xFF0F766E),
+                  side: const BorderSide(color: Color(0xFFCBD5E1)),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
+                icon: const Icon(Icons.table_chart_rounded, size: 16),
+                label: const Text('99-Col Spreadsheet', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const DatasetSpreadsheetScreen()),
+                  );
+                },
+              ),
             ),
+            const SizedBox(width: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: OutlinedButton.icon(
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: const Color(0xFF334155),
+                  side: const BorderSide(color: Color(0xFFCBD5E1)),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
+                icon: const Icon(Icons.table_view_outlined, size: 16),
+                label: const Text('Export Excel', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
+                onPressed: _visits.isEmpty ? null : _exportAllVisitsToExcel,
+              ),
+            ),
+            const SizedBox(width: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: OutlinedButton.icon(
+                style: OutlinedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: const Color(0xFF0F766E),
+                  side: const BorderSide(color: Color(0xFFCBD5E1)),
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                ),
+                icon: _isSyncing
+                    ? const SizedBox(width: 14, height: 14, child: CircularProgressIndicator(color: Color(0xFF0F766E), strokeWidth: 2))
+                    : const Icon(Icons.sync_rounded, size: 16),
+                label: const Text('Sync Cloud', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600)),
+                onPressed: _isSyncing ? null : _syncAllPending,
+              ),
+            ),
+            const SizedBox(width: 10),
+          ] else ...[
             IconButton(
-              icon: const Icon(Icons.table_view_outlined, size: 20),
-              tooltip: 'Export to Excel (.xlsx)',
-              onPressed: _visits.isEmpty ? null : _exportAllVisitsToExcel,
+              icon: const Icon(Icons.sync_rounded, size: 20),
+              tooltip: 'Sync Cloud Data',
+              onPressed: _isSyncing ? null : _syncAllPending,
             ),
           ],
-          IconButton(
-            icon: const Icon(Icons.sync_rounded, size: 20),
-            tooltip: 'Sync Cloud Data',
-            onPressed: _isSyncing ? null : _syncAllPending,
-          ),
           IconButton(
             tooltip: 'Observer Profile & Settings',
             onPressed: () {
