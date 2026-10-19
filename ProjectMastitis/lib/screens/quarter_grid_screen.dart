@@ -10,11 +10,13 @@ import 'treatment_screen.dart';
 class QuarterGridScreen extends StatefulWidget {
   final VisitRecord visit;
   final CowRecord cow;
+  final String? initialQuarter;
 
   const QuarterGridScreen({
     super.key,
     required this.visit,
     required this.cow,
+    this.initialQuarter,
   });
 
   @override
@@ -33,7 +35,12 @@ class _QuarterGridScreenState extends State<QuarterGridScreen> with SingleTicker
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    int initialIndex = 0;
+    if (widget.initialQuarter != null) {
+      final idx = _quarters.indexOf(widget.initialQuarter!.toUpperCase().trim());
+      if (idx >= 0) initialIndex = idx;
+    }
+    _tabController = TabController(length: 4, vsync: this, initialIndex: initialIndex);
 
     final firstQ = widget.cow.quarters['LF']!;
     _reagentLotCtrl = TextEditingController(text: firstQ.cmtReagentLot ?? 'LOT-2026-A');

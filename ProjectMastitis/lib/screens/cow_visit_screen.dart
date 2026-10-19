@@ -135,10 +135,7 @@ class _CowVisitScreenState extends State<CowVisitScreen> {
     }
   }
 
-  Future<void> _saveAndNext() async {
-    if (!_formKey.currentState!.validate()) return;
-
-    final c = widget.cow;
+  void _syncFormToCow(CowRecord c) {
     c.cowId = _cowIdCtrl.text.trim();
     c.localTagId = _localTagCtrl.text.trim().isEmpty ? null : _localTagCtrl.text.trim();
     c.lactationId = _lactationIdCtrl.text.trim().isEmpty ? 'L1' : _lactationIdCtrl.text.trim();
@@ -166,9 +163,35 @@ class _CowVisitScreenState extends State<CowVisitScreen> {
     c.cowAntimicrobialPrevious14d = _antimicrobial14d;
     c.cowMastitisTreatmentSinceLast = _mastitisTxSinceLast;
     c.cowIncompleteMilkingOrSuckling = _incompleteMilking;
+  }
 
-    if (widget.isNew && !widget.visit.cows.any((existing) => existing.cowId == c.cowId)) {
-      widget.visit.cows.add(c);
+  Future<void> _saveOnly() async {
+    if (!_formKey.currentState!.validate()) return;
+    _syncFormToCow(widget.cow);
+
+    if (widget.isNew && !widget.visit.cows.any((existing) => existing.cowId == widget.cow.cowId)) {
+      widget.visit.cows.add(widget.cow);
+    }
+
+    await LocalStorageService.instance.saveVisit(widget.visit);
+
+    if (!mounted) return;
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        backgroundColor: const Color(0xFF0F766E),
+        content: Text('Saved Cow ${widget.cow.cowId} details.', style: const TextStyle(fontSize: 13)),
+        duration: const Duration(seconds: 2),
+      ),
+    );
+    Navigator.pop(context);
+  }
+
+  Future<void> _saveAndNext() async {
+    if (!_formKey.currentState!.validate()) return;
+    _syncFormToCow(widget.cow);
+
+    if (widget.isNew && !widget.visit.cows.any((existing) => existing.cowId == widget.cow.cowId)) {
+      widget.visit.cows.add(widget.cow);
     }
 
     await LocalStorageService.instance.saveVisit(widget.visit);
@@ -179,7 +202,7 @@ class _CowVisitScreenState extends State<CowVisitScreen> {
       MaterialPageRoute(
         builder: (_) => QuarterGridScreen(
           visit: widget.visit,
-          cow: c,
+          cow: widget.cow,
         ),
       ),
     );
@@ -548,16 +571,37 @@ class _CowVisitScreenState extends State<CowVisitScreen> {
                 ),
                 const SizedBox(height: 14),
 
-                ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF0F766E),
-                    foregroundColor: Colors.white,
-                    minimumSize: const Size(double.infinity, 42),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                  ),
-                  onPressed: _saveAndNext,
-                  icon: const Icon(Icons.arrow_forward_rounded, size: 18),
-                  label: const Text('Save Cow & Record Quarters (CMT) →', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600)),
+                Row(
+                  children: [
+                    Expanded(
+                      child: OutlinedButton.icon(
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: const Color(0xFF0F766E),
+                          side: const BorderSide(color: Color(0xFF0F766E), width: 1.5),
+                          minimumSize: const Size(0, 42),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        ),
+                        onPressed: _saveOnly,
+                        icon: const Icon(Icons.check_rounded, size: 17),
+                        label: const Text('Save Details', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      flex: 2,
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF0F766E),
+                          foregroundColor: Colors.white,
+                          minimumSize: const Size(0, 42),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                        ),
+                        onPressed: _saveAndNext,
+                        icon: const Icon(Icons.arrow_forward_rounded, size: 17),
+                        label: const Text('Quarters (CMT) →', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700)),
+                      ),
+                    ),
+                  ],
                 ),
                 const SizedBox(height: 24),
               ],

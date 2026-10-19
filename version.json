@@ -1,0 +1,8 @@
+{
+  "version_code": 2,
+  "version_name": "1.1.0",
+  "release_notes": "Added Excel-style 99-column spreadsheet view, full cow & quarter editing, custom logo branding, and performance optimizations.",
+  "apk_download_url": "https://github.com/Mufti-IBAK/mastitis_research/raw/main/releases/mastitis_research.apk",
+  "desktop_download_url": "https://github.com/Mufti-IBAK/mastitis_research/raw/main/releases/Mastitis_Research_Desktop_Setup.exe",
+  "is_mandatory": false
+}

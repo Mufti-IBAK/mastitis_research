@@ -4,6 +4,7 @@ import '../services/local_storage_service.dart';
 import '../services/export_print_service.dart';
 import '../widgets/responsive_wrapper.dart';
 import 'cow_visit_screen.dart';
+import 'quarter_grid_screen.dart';
 import 'visit_summary_screen.dart';
 
 class CowListScreen extends StatefulWidget {
@@ -34,22 +35,46 @@ class _CowListScreenState extends State<CowListScreen> {
     }
   }
 
-  Widget _buildQuarterPill(String qName, QuarterData q) {
+  Widget _buildQuarterPill(CowRecord cow, String qName, QuarterData q) {
     final c = _getCmtColor(q.cmtScore);
     final isBlind = q.functionalStatus != 'Functional';
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-      decoration: BoxDecoration(
-        color: isBlind ? const Color(0xFFF1F5F9) : c.withValues(alpha: 0.1),
-        borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: isBlind ? const Color(0xFFCBD5E1) : c.withValues(alpha: 0.6), width: 1),
-      ),
-      child: Text(
-        isBlind ? '$qName: Blind' : '$qName [${q.cmtScore}]',
-        style: TextStyle(
-          fontSize: 11,
-          fontWeight: FontWeight.w700,
-          color: isBlind ? const Color(0xFF64748B) : c,
+    return InkWell(
+      borderRadius: BorderRadius.circular(6),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => QuarterGridScreen(
+              visit: widget.visit,
+              cow: cow,
+              initialQuarter: qName,
+            ),
+          ),
+        ).then((_) {
+          setState(() {});
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        decoration: BoxDecoration(
+          color: isBlind ? const Color(0xFFF1F5F9) : c.withValues(alpha: 0.12),
+          borderRadius: BorderRadius.circular(6),
+          border: Border.all(color: isBlind ? const Color(0xFFCBD5E1) : c.withValues(alpha: 0.7), width: 1.2),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              isBlind ? '$qName: Blind' : '$qName [${q.cmtScore}]',
+              style: TextStyle(
+                fontSize: 11,
+                fontWeight: FontWeight.w700,
+                color: isBlind ? const Color(0xFF64748B) : c,
+              ),
+            ),
+            const SizedBox(width: 4),
+            Icon(Icons.edit_outlined, size: 10, color: isBlind ? const Color(0xFF94A3B8) : c),
+          ],
         ),
       ),
     );
@@ -355,10 +380,10 @@ class _CowListScreenState extends State<CowListScreen> {
                                 spacing: 6,
                                 runSpacing: 6,
                                 children: [
-                                  _buildQuarterPill('LF', cow.quarters['LF'] ?? QuarterData(quarter: 'LF')),
-                                  _buildQuarterPill('RF', cow.quarters['RF'] ?? QuarterData(quarter: 'RF')),
-                                  _buildQuarterPill('LR', cow.quarters['LR'] ?? QuarterData(quarter: 'LR')),
-                                  _buildQuarterPill('RR', cow.quarters['RR'] ?? QuarterData(quarter: 'RR')),
+                                  _buildQuarterPill(cow, 'LF', cow.quarters['LF'] ?? QuarterData(quarter: 'LF')),
+                                  _buildQuarterPill(cow, 'RF', cow.quarters['RF'] ?? QuarterData(quarter: 'RF')),
+                                  _buildQuarterPill(cow, 'LR', cow.quarters['LR'] ?? QuarterData(quarter: 'LR')),
+                                  _buildQuarterPill(cow, 'RR', cow.quarters['RR'] ?? QuarterData(quarter: 'RR')),
                                 ],
                               ),
 
